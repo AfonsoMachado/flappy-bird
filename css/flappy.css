@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
+}
+
+@font-face {
+    font-family: 'Pixel';
+    src: url(../fonts/Pixel.ttf);
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: url('../fonts/Oswald-Regular.ttf') format('truetype');
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background-color: #0D262D;
+    color: #fff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100%;
+}
+
+/*estilo para a propriedade personalizada*/
+[flappy] {
+    position: relative;
+    border: 5px solid dodgerblue;
+    height: 700px;
+    width: 1200px;
+    margin: 15px;
+
+    /*definindo background do jogo*/
+    background-image: url(../imgs/fundo2.png);
+    background-position-y: bottom;
+    background-repeat: repeat-x;
+    background-color: #4dc1cb;
+
+    /*qualquer item fora da div será escondido*/
+    overflow: hidden;
+}
+
+.passaro {
+    position: absolute;
+    width: 60px;
+    /*psicionando 50% a esquerda menos 30px para psicionar no meio*/
+    left: calc(50% - 30px);
+    /*posicionando com relação ao fundo*/
+    /* bottom: 50%; */
+}
+
+.par-de-barreiras {
+    position: absolute;
+    /*alinhado ao topo*/
+    top: 0;
+    height: 100%;
+
+    /*usando flexbox no par de barreiras*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.barreira {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.barreira .borda {
+    height: 30px;
+    width: 130px;
+    background: linear-gradient(90deg, #639301, #A5E82E);
+    border: 2px solid #000;
+}
+
+.barreira .corpo {
+    height: 40px;
+    width: 110px;
+    background: linear-gradient(90deg, #639301, #A5E82E);
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+}
+
+.progresso {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-family: 'Pixel';
+    font-size: 70px;
+    z-index: 100;
+}
