@@ -4,7 +4,7 @@
 
 ## :cloud: Hospedagem
 
-Este aplicativo foi hospedado na web para fins educativos e de testes, pode ser acessado online a partir de:https://flappy-bird-am.vercel.app/
+Este aplicativo foi hospedado na web para fins educativos e de testes, pode ser acessado online a partir de: https://flappy-bird-am.vercel.app/
   - https://flappy-bird-am.vercel.app/
 
 ## :computer: Executando localmente
