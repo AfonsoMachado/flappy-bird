@@ -10,6 +10,10 @@ Este aplicativo foi hospedado na web para fins educativos e de testes, pode ser 
 ## :computer: Executando localmente
 
 É necessário somente clonar o repositório e executar a partir do arquivo index.html
+
+## :memo: Licença
+
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
  
  ---
 
