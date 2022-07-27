@@ -1,3 +1,5 @@
+import Barrier from "./Barrier.js";
+
 /**
  * Recebe como parâmetro o nome da tag e classe
  * para criar um novo elemento, retornando o mesmo com
@@ -13,32 +15,6 @@ function newElement(tagName, className) {
   const element = document.createElement(tagName);
   element.className = className;
   return element;
-}
-
-/**
- * Recebe como parâmetro um boolean que define se
- * a barreira será reversa ou não
- *
- * @param {Boolean} reverse
- */
-function Barrier(reverse = false) {
-  this.element = newElement("div", "barrier");
-
-  // Criando a borda e o corpo da barreira
-  const barrierBorder = newElement("div", "barrier-border");
-  const barrierBody = newElement("div", "barrier-body");
-
-  // Se for uma barreira reversa, primeiro aplica o corpo, e em seguida a borda, se não, o contrário
-  this.element.appendChild(reverse ? barrierBody : barrierBorder);
-  this.element.appendChild(reverse ? barrierBorder : barrierBody);
-
-  /**
-   * Função que define a altura do corpo da barreira
-   *
-   * @param {Number} height
-   */
-  this.setBarrierHeight = (height) =>
-    (barrierBody.style.height = `${height}px`);
 }
 
 /**
@@ -66,6 +42,8 @@ function PairOfBarriers(height, opening, x) {
     // Definindo uma opening no espaço disponivel
     const topHeight = Math.random() * (height - opening);
     const bottomHeight = height - opening - topHeight;
+
+    this.top.setBarrierHeight(topHeight);
 
     this.top.setBarrierHeight(topHeight);
     this.bottom.setBarrierHeight(bottomHeight);
@@ -201,7 +179,7 @@ function Bird(gameHeight) {
   this.setY(gameHeight / 2);
 }
 
-function Progresso() {
+function Progress() {
   this.element = newElement("span", "progress");
 
   /**
@@ -278,7 +256,7 @@ function FlappyBird() {
   const width = gameArea.clientWidth;
 
   // Criando os elements do jogos
-  const progress = new Progresso();
+  const progress = new Progress();
   const barriers = new Barriers(height, width, 200, 400, () =>
     progress.updateScore(++score)
   );
