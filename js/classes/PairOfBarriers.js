@@ -30,15 +30,13 @@ export default class PairOfBarriers {
   }
 
   /**
-   * Definindo a opening entre o par de barreiras
+   * Definindo a abertura entre o par de barreiras
    */
   drawOpening() {
-    // Definindo uma opening no espaço disponivel
-    // Gerando um valor aleatório para altura top, calcula a altura bottom e seta ambas
+    // Definindo uma abertura no espaço disponivel
+    // Gerando um valor aleatório para altura da barreira de cima, calcula a altura da barreira de baixo e seta ambas
     const topHeight = Math.random() * (this.height - this.opening);
     const bottomHeight = this.height - this.opening - topHeight;
-
-    this.top.setBarrierHeight(topHeight);
 
     this.top.setBarrierHeight(topHeight);
     this.bottom.setBarrierHeight(bottomHeight);
