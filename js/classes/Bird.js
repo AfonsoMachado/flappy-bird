@@ -38,12 +38,12 @@ export default class Bird {
   }
 
   animate() {
-    // Setando que o passaro sobre mais rapido do que cai
+    // Setando que o passaro sobe mais rapido do que cai
     const newY = this.getY() + (this.isFlying ? 8 : -5);
-    // A height maxima do passaro é o teto
+    // A altura maxima do passaro é o teto
     const maxHeight = this.gameHeight - this.element.clientHeight;
 
-    // Algoritmo para não deixa o passaro passar do teto ou do chao
+    // Algoritmo para não deixar o passaro passar do teto ou do chao
     if (newY <= 0) {
       this.setY(0);
     } else if (newY >= maxHeight) {

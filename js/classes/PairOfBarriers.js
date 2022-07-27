@@ -3,8 +3,8 @@ import { newElement } from "../util/utils.js";
 
 /**
  *
- * @param {Number} height - Altura de uma da barreiras, a height da segunda barreira será calculada com base nesta
- * @param {Number} opening - Abertura entre as barreiras top e bottom
+ * @param {Number} height - Altura de uma da barreiras, a altura da segunda barreira será calculada com base nesta
+ * @param {Number} opening - Abertura entre as barreiras
  * @param {Number} x - Lugar em que posição no eixo x está a barreira
  */
 export default class PairOfBarriers {
@@ -24,10 +24,8 @@ export default class PairOfBarriers {
     this.element.appendChild(this.top.element);
     this.element.appendChild(this.bottom.element);
 
-    // Gerando um valor aleatório para height top, calcula a height bottom e set ambas
     this.drawOpening();
 
-    // definindo a posição em que a barreira aparece na tela
     this.setX(x);
   }
 
@@ -36,6 +34,7 @@ export default class PairOfBarriers {
    */
   drawOpening() {
     // Definindo uma opening no espaço disponivel
+    // Gerando um valor aleatório para altura top, calcula a altura bottom e seta ambas
     const topHeight = Math.random() * (this.height - this.opening);
     const bottomHeight = this.height - this.opening - topHeight;
 
