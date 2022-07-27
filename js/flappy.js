@@ -1,4 +1,4 @@
-import Barrier from "./Barrier.js";
+import PairOfBarriers from "./PairOfBarriers.js";
 
 /**
  * Recebe como parâmetro o nome da tag e classe
@@ -15,68 +15,6 @@ function newElement(tagName, className) {
   const element = document.createElement(tagName);
   element.className = className;
   return element;
-}
-
-/**
- *
- * @param {Number} height - Altura de uma da barreiras, a height da segunda barreira será calculada com base nesta
- * @param {Number} opening - Abertura entre as barreiras top e bottom
- * @param {Number} x - Lugar em que posição no eixo x está a barreira
- */
-function PairOfBarriers(height, opening, x) {
-  // div que define a localização do par de barreiras
-  this.element = newElement("div", "pair-of-barriers");
-
-  // Definindo o par de barreiras
-  this.top = new Barrier(true);
-  this.bottom = new Barrier(false);
-
-  // Adicionando o par de barreiras dentro da div barreira
-  this.element.appendChild(this.top.element);
-  this.element.appendChild(this.bottom.element);
-
-  /**
-   * Definindo a opening entre o par de barreiras
-   */
-  this.drawOpening = () => {
-    // Definindo uma opening no espaço disponivel
-    const topHeight = Math.random() * (height - opening);
-    const bottomHeight = height - opening - topHeight;
-
-    this.top.setBarrierHeight(topHeight);
-
-    this.top.setBarrierHeight(topHeight);
-    this.bottom.setBarrierHeight(bottomHeight);
-  };
-
-  /**
-   * Indica em que posição o par de barreira está.
-   * Realizando um split na propriedade left, e transformando
-   * o valor numérico restante, em tipo Number
-   *
-   * @returns {Number}
-   */
-  this.getX = () => parseInt(this.element.style.left.split("px")[0]);
-
-  /**
-   * Atribui o valor da posição x da barreira
-   *
-   * @param {Number} x
-   */
-  this.setX = (x) => (this.element.style.left = `${x}px`);
-
-  /**
-   * Captura a width do element
-   *
-   * @returns {Number}
-   */
-  this.getWidth = () => this.element.clientWidth;
-
-  // Gerando um valor aleatório para height top, calcula a height bottom e set ambas
-  this.drawOpening();
-
-  // definindo a posição em que a barreira aparece na tela
-  this.setX(x);
 }
 
 /**
