@@ -1,4 +1,5 @@
 import Barriers from "./Barriers.js";
+import Progress from "./Progress.js";
 
 /**
  * Recebe como parâmetro o nome da tag e classe
@@ -62,21 +63,6 @@ function Bird(gameHeight) {
   };
 
   this.setY(gameHeight / 2);
-}
-
-function Progress() {
-  this.element = newElement("span", "progress");
-
-  /**
-   * Inserindo a quantidade de pontos no html
-   *
-   * @param {Number} score
-   */
-  this.updateScore = (score) => {
-    this.element.innerHTML = score;
-  };
-
-  this.updateScore(0);
 }
 
 /**
