@@ -28,7 +28,6 @@ body {
   min-height: 100%;
 }
 
-/*estilo para a propriedade personalizada*/
 [flappy] {
   position: relative;
   border: 5px solid dodgerblue;
@@ -36,51 +35,44 @@ body {
   width: 1200px;
   margin: 15px;
 
-  /*definindo background do jogo*/
-  background-image: url(../imgs/fundo2.png);
+  background-image: url(../imgs/bg-flappy.png);
   background-position-y: bottom;
   background-repeat: repeat-x;
   background-color: #4dc1cb;
 
-  /*qualquer item fora da div será escondido*/
   overflow: hidden;
 }
 
-.passaro {
+.bird {
   position: absolute;
   width: 60px;
-  /*psicionando 50% a esquerda menos 30px para psicionar no meio*/
   left: calc(50% - 30px);
-  /*posicionando com relação ao fundo*/
-  /* bottom: 50%; */
 }
 
-.par-de-barreiras {
+.pair-of-barriers {
   position: absolute;
-  /*alinhado ao topo*/
   top: 0;
   height: 100%;
 
-  /*usando flexbox no par de barreiras*/
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.barreira {
+.barrier {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.barreira .borda {
+.barrier .barrier-border {
   height: 30px;
   width: 130px;
   background: linear-gradient(90deg, #639301, #a5e82e);
   border: 2px solid #000;
 }
 
-.barreira .corpo {
+.barrier .barrier-body {
   height: 40px;
   width: 110px;
   background: linear-gradient(90deg, #639301, #a5e82e);
@@ -88,7 +80,7 @@ body {
   border-right: 2px solid #000;
 }
 
-.progresso {
+.progress {
   position: absolute;
   top: 10px;
   right: 10px;
