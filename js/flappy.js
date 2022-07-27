@@ -1,4 +1,4 @@
-import PairOfBarriers from "./PairOfBarriers.js";
+import Barriers from "./Barriers.js";
 
 /**
  * Recebe como parâmetro o nome da tag e classe
@@ -15,59 +15,6 @@ function newElement(tagName, className) {
   const element = document.createElement(tagName);
   element.className = className;
   return element;
-}
-
-/**
- * Função que representa todas as barreiras do jogo
- * nesse caso são usados 4 pairs de barreiras
- *
- * @param {Number} height - Altura do jogo
- * @param {Number} width - Largura do jogo
- * @param {Number} opening - Espaço de opening entre as barreiras top e bottom
- * @param {Number} space - Espaço entre as barreiras no eixo x
- * @param {Function} notifyScore - Função para contabilizar os pontos
- */
-function Barriers(height, width, opening, space, notifyScore) {
-  //Definindo quatro barreiras por jogo
-  this.pairs = [
-    // A posição inicial da barreira, é exatamente fora do jogo, por isso o parametro width
-    new PairOfBarriers(height, opening, width),
-    new PairOfBarriers(height, opening, width + space),
-    new PairOfBarriers(height, opening, width + space * 2),
-    new PairOfBarriers(height, opening, width + space * 3),
-  ];
-
-  const displacement = 3;
-
-  /**
-   * Função que realiza a animação de andar as barreiras
-   *
-   */
-  this.animate = () => {
-    this.pairs.forEach((par) => {
-      // x atual, menos o displacement, setando o x novo, realizando por fim a ação de andar
-      par.setX(par.getX() - displacement);
-
-      // Quando o element sair da tela, ele retorna ao final para entrar novamente na tela, usando a função para sortear height novamente
-      if (par.getX() < -par.getWidth()) {
-        // Nova posição: x atual + espaço entre as barreiras * a quantidade de barreiras
-        // assim esse element é inserido no final, como se fosse uma fila de pairs de barreiras
-        par.setX(par.getX() + space * this.pairs.length);
-        // console.log(space * this.pairs.length);
-        // Sorteando uma nova opening para a barreira
-        par.drawOpening();
-      }
-
-      const middle = width / 2;
-
-      // Verificando quando uma barreira cruzar o middle da tela
-      const crossedHalfScreen =
-        par.getX() + displacement >= middle && par.getX() < middle;
-
-      // caso o par de barreira conseiga passar pelo passaro, contabiliza um ponto
-      if (crossedHalfScreen) notifyScore();
-    });
-  };
 }
 
 /**
@@ -208,7 +155,7 @@ function FlappyBird() {
   this.start = () => {
     //loop do jogo
     const temporizador = setInterval(() => {
-      barriers.animate();
+      barriers.animate(3);
       passaro.animate();
 
       // a colisão faz com que o jogo pare
