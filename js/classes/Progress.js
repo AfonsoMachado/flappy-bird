@@ -1,4 +1,4 @@
-import { newElement } from "./utils.js";
+import { newElement } from "../util/utils.js";
 
 export default class Progress {
   constructor() {

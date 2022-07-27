@@ -1,5 +1,5 @@
 import Barrier from "./Barrier.js";
-import { newElement } from "./utils.js";
+import { newElement } from "../util/utils.js";
 
 /**
  *

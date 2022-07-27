@@ -1,3 +1,3 @@
-import FlappyBird from "./FlappyBird.js";
+import FlappyBird from "./classes/FlappyBird.js";
 
 new FlappyBird().start();
